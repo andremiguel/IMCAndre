@@ -1,0 +1,36 @@
+.content{
+    overflow: hidden;  
+}
+.content form{
+    margin-top: 20px;
+}
+.bottom{
+    clear: both;
+    overflow: auto;
+}
+.bottom input{
+    width: 80%;
+    float: left;
+    margin-right: 5%;
+}
+.bottom button{
+    width: 15%;
+    float: right;
+
+}
+
+.result-box{
+    border: 1px solid #000;
+}
+
+.result-box h1{
+    margin: 5px 0 0px 20px;
+    font-size: 2rem;
+}
+.result-box div{
+    text-align: center;
+    font-size: 2rem;
+}
+.result-box .result{
+    font-size: 5rem;
+}
