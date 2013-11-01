@@ -24,6 +24,7 @@
     </header>
     <article ng-controller="IMCController" class="content scrollable header" >
     	<form action="" method="post" onsubmit=""></form>
+      <input type="text" ng-model="sexo" placeholder="Sexo M ou F" />
     	<input type="number" ng-model="peso" placeholder="Peso em KG"  onkeypress="return numeros(event.keyCode, event.which);">
       <div class="bottom">
           <input type="number" ng-model="altura" placeholder="Altura em metros"  onkeypress="return numeros(event.keyCode, event.which);">
@@ -35,7 +36,7 @@
           {{result | number: 2}}
         </div>
         <div class="info">
-          {{description}}
+          {{info}}
         </div>
       </div>
       
