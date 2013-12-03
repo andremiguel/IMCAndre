@@ -1,3 +1,18 @@
+#drawer {
+    height: 1000px;
+}
+
+#cont {
+    color: white;
+}
+section .label {
+    font-size: 4rem;
+}
+
+p{
+    color: white;
+}
+
 .content{
     overflow: hidden;  
 }
@@ -9,14 +24,13 @@
     overflow: auto;
 }
 .bottom input{
-    width: 75%;
+    width: 60%;
     float: left;
     margin-right: 5%;
 }
 .bottom button{
-    width: 15%;
+    width: 30%;
     float: right;
-
 }
 
 .result-box{
@@ -33,4 +47,9 @@
 }
 .result-box .result{
     font-size: 5rem;
+}
+.result-box input{
+    margin-top: 5px;
+    width: 50%;
+    float: left;
 }

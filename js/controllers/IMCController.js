@@ -1,7 +1,18 @@
+function limpar(){
+    	localStorage.clear();
+    	alert("");
+}
+	
 function IMCController($scope) {
 	$scope.result = 0.0;
-	$scope.info = "aviso";
+	$scope.info = "";
 	$scope.description="";
+	imgimc.src="";
+
+	$scope.contarlinhas = function() {
+		$scope.numlinhas =jQuery("#tb-imc tbody tr").length; 
+	}
+
 	$scope.calculate = function(){
 		if($scope.peso !== '' && $scope.altura !== ''){
 			$scope.result = $scope.peso / ($scope.altura * $scope.altura);
@@ -52,4 +63,5 @@ function IMCController($scope) {
 			imgimc.src="css/imagem/branco.jpg";}
 	}
 	};
+
 }

@@ -12,42 +12,117 @@
 <link rel="stylesheet" href="css/cross_browser.css">
 <link rel="stylesheet" href="css/drawer.css">
 <link rel="stylesheet" href="css/style.css">
-<title>Calculador IMC</title>
+  <link rel="stylesheet" type="text/css" href="css/table.css" />
+<title>Calculator IMC - Lucas and Andre</title>
 
 </head>
-<body>
-
-<section id="index" data-position="current">
-  <section id="drawer" role="region">
-    <header class="fixed">
-      <h1>Calculador IMC</h1>
+<body ng-controller="contarlinhas" ng-init="contarlinhas()">
+  <section data-type="sidebar">
+    <header>
+      <menu type="toolbar">
+        <a href="#">Voltar</a>
+      </menu>
+      <h1>Resultados</h1>
     </header>
-    <article ng-controller="IMCController" class="content scrollable header" >
-    	<form action="" method="post" onsubmit=""></form>
-      <input type="text" ng-model="sexo" placeholder="Sexo M ou F" />
-    	<input type="number" ng-model="peso" placeholder="Peso em KG"  onkeypress="return numeros(event.keyCode, event.which);">
-      <div class="bottom">
-          <input type="number" ng-model="altura" placeholder="Altura em metros"  onkeypress="return numeros(event.keyCode, event.which);">
-          <button ng-click="calculate()">Calcular</button>
-      </div>
-      <div class="result-box">
-        <h1>Resultado</h1>
-        <div class="result">
-          {{result | number: 2}}
-        </div>
-        <div class="info">
-          {{info}}
-        </div>
-      </div>
-      
-      <!-- the app content -->
-    </article>
+    <nav>
+      <h2>Testes Anteriores</h2>
+      <table id="tb-imc" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>IMC</th>
+            <th>Ações</th>
+          </tr>
+          <tr>
+            
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot><th>Testes realizados:</th>
+          <th></th>
+            <th class ="numlinhas"><input type="contador" id="contador" ReadOnly="True" value="{{numlinhas}}"  /></th></tfoot>
+      </table>
+      <ul>
+        <li ng-controller="Limpar">
+          <button ng-click="contarlinhas()">Atualizar testes</button>
+          <button ng-click="limpar()">Limpar Tabela</button>
+        </li>
+      </ul>
+    </nav>
   </section>
-</section>
+  <section id="index" data-position="current">
+    <section id="drawer" role="region">
+      <header class="fixed">
+        <a href="#">
+          <span class="icon icon-menu">hide sidebar</span>
+        </a>
+        <a href="#drawer">
+          <span class="icon icon-menu">show sidebar</span>
+        </a>
+        <h1>Calculador IMC</h1>
+      </header>
+      <article ng-controller="IMCController" class="content scrollable header" id="teste" >
+     
+        <form action="" method="post" onsubmit=""></form>
+        <input type="text" ng-model="sexo" placeholder="Sexo M ou F" />
+    	  <input type="number" ng-model="peso" placeholder="Peso em KG"  onkeypress="return numeros(event.keyCode, event.which);">
+        <div class="bottom">
+          <input type="number" ng-model="altura" placeholder="Altura em mts"  onkeypress="return numeros(event.keyCode, event.which);">
+          <a href="#result-box"><button ng-click="calculate()">Calcular</button></a>
+        </div>
+        <div class="result-box" id="result-box">
+          <h1>Resultado</h1>
+          <div class="result">
+            {{result | number: 2}}
+          </div>
+          <div class="info">
+            {{info}}
+            <br>
+            <img id="imgimc" alt="Imc" />
+            <br>
+          </div>
+        </div>
+      
+        <form id="fb-imc" class="form-horizontal" action="" method="POST">
+          <fieldset>
+              
+          <div class="control-group">
+            <label class="control-label" for="name">Digite seu nome:</label>
+            <div class="controls" >
+              <input type="text" id="name" required="required" />
+            </div>
+          </div>
+      
+          <div class="control-group">
+            <label class="control-label" for="resultimc">Confira seu IMC e salve:</label>
+            <div class="controls">
+              <input type="resultimc" id="resultimc" value="{{result | number: 2}}" />
+            </div>
+          </div>
 
-<script src="js/vendor/angular.min.js"></script>
-<script src="js/controllers/IMCController.js"></script>
-<script src="js/controllers/Validar.js"></script>
+          <div class="buttons">
+            <input type="submit" class="btn btn-primary" value="Salvar" />
+            <input type="reset" onclick="reload();"class="btn" value="Cancelar" />
+            <script>function reload(){ window.location.reload()}</script>
+          </div>
+      
+      
+          </fieldset>
+        </form>
+        <!-- the app content -->
+      </article>
+    </section>
+  </section>
+
+  <script src="js/daos/IMCDAO.js"></script>
+  <script src="js/controllers/contarlinhas.js"></script>
+  <script src="js/controllers/jquery.js"></script>
+  <script src="js/controllers/TableController.js"></script>
+  <script src="js/controllers/index.js"></script>
+  <script src="js/vendor/angular.min.js"></script>
+  <script src="js/controllers/IMCController.js"></script>
+  <script src="js/controllers/Validar.js"></script>
+  <script src="js/controllers/Limpar.js"></script>
 
 </body>
 </html>
